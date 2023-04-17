@@ -1,0 +1,29 @@
+.solutionContainer {
+    .title {
+        padding: 10px 0;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    button {
+        margin: 20px 10px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: 1px solid black;
+        box-shadow: 5px 5px 10px 1px black;
+        font-weight: 800;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 20px;
+        background-color: white;
+        box-shadow: 5px 5px 10px 1px black;
+        margin: 10px 0;
+    }
+
+    .name {
+        font-size: 18px;
+        font-weight: 600;
+    }
+}

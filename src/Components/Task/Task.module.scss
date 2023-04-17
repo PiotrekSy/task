@@ -1,0 +1,63 @@
+.taskContainer {
+    padding: 10px;
+
+    .taskHeader {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+
+        .taskTitle {
+            font-size: 20px;
+            font-weight: 800;
+        }
+    }
+
+    button {
+        margin: 0 10px;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid black;
+        box-shadow: 5px 5px 10px 1px black;
+        font-weight: 800;
+    }
+
+    p {
+        color: black;
+        line-height: 1.4rem;
+
+    }
+
+    .productCard {
+        padding: 10px;
+        margin: 20px;
+        width: 90%;
+        background-color: white;
+        border-radius: 20px;
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .title {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .category {
+                font-weight: bold;
+            }
+
+            .description {
+                margin: 10px 0;
+            }
+
+            .price {
+                font-weight: bold;
+            }
+
+            .id {}
+        }
+
+    }
+}
