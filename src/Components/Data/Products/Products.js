@@ -1,7 +1,7 @@
-import { ProductsContext } from '../../../Context/DataContext/DataContext';
+import { texts } from './texts';
 import styles from './Products.module.scss';
 import { useState, useContext } from 'react';
-import { texts } from './texts';
+import { ProductsContext } from '../../../Context/DataContext/DataContext';
 
 const Products = () => {
 

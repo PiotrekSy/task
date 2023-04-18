@@ -1,8 +1,8 @@
+import { texts } from './texts';
 import styles from './Users.module.scss';
 import { useState, useContext } from 'react';
+import { capitalize } from '../../utils/capitalizeFunction.js';
 import { UsersContext } from '../../../Context/DataContext/DataContext';
-import { capitalize } from '../capitalizeFunction.js';
-import { texts } from './texts'
 
 const Users = () => {
 

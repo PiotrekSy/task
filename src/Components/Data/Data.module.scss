@@ -20,6 +20,11 @@
         border: 1px solid black;
         box-shadow: 5px 5px 10px 1px black;
         font-weight: 800;
+        cursor: pointer;
+
+        &:hover {
+            background-color: lightgrey;
+        }
     }
 
     p {
