@@ -5,15 +5,7 @@ import {
     CartsContext
 } from '../../../Context/DataContext/DataContext';
 import styles from './MostExpensiveCart.module.scss';
-
-// function that capitalizes first letters of every word from string on demand"
-function capitalize(string) {
-    var rawString = string.toLowerCase().split(' ');
-    for (var i = 0; i < rawString.length; i++) {
-        rawString[i] = rawString[i].charAt(0).toUpperCase() + rawString[i].substring(1);
-    }
-    return rawString.join(' ');
-}
+import { capitalize } from '../../utils/capitalizeFunction';
 
 const MostExpensiveCart = () => {
     // fetched data from context:

@@ -1,15 +1,7 @@
 import { useContext, useState } from 'react';
 import { UsersContext } from '../../../Context/DataContext/DataContext';
 import styles from './FurthestUsers.module.scss';
-
-// function that capitalizes first letters of every word from string"
-function capitalize(string) {
-    var rawString = string.toLowerCase().split(' ');
-    for (var i = 0; i < rawString.length; i++) {
-        rawString[i] = rawString[i].charAt(0).toUpperCase() + rawString[i].substring(1);
-    }
-    return rawString.join(' ');
-}
+import { capitalize } from '../../utils/capitalizeFunction';
 
 const FurthestUsers = () => {
     // fetched data from context:
