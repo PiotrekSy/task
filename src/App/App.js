@@ -13,7 +13,6 @@ const App = () => {
 
   //data fetching: 
   useEffect(() => {
-
     const users = fetch('https://fakestoreapi.com/users');
     const products = fetch('https://fakestoreapi.com/products');
     const carts = fetch('https://fakestoreapi.com/carts/?startdate=2000-01-01&enddate=2023-04-07');

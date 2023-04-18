@@ -1,34 +1,37 @@
+import { texts } from './texts';
 import { useState, useContext } from 'react';
-import { ProductsContext } from '../../../Context/DataContext/DataContext';
 import styles from './SortedCategories.module.scss';
+import { capitalize } from '../../utils/capitalizeFunction';
+import { categoriesCalculator } from './categoriesCalculator';
+import { ProductsContext } from '../../../Context/DataContext/DataContext';
 
 const SortedCategories = () => {
-
-    // products data from context:
+    // products data from context
     const productsData = useContext(ProductsContext);
     const [shownJson, setShownJson] = useState(false);
+    // collapse function
     const handleShowJson = () => setShownJson(!shownJson);
-
-    // function sorting products by categories inside 'categories' data structure:
-    let categories = {};
-    for (const product of productsData) {
-        if (!categories[product.category]) {
-            categories[product.category] = { totalValue: 0 };
-        }
-        categories[product.category].totalValue += (product.price);
-    }
-
+    const categories = categoriesCalculator(productsData);
+    // arrays of 
     const categoriesSimplified = Object.keys(categories);
     const totalValuesSimplified = Object.values(categories);
 
     return (
         <div className={styles.solutionContainer}>
-            <p className={styles.title}>2. Categories and values:</p>
+            <p className={styles.title}>{texts.taskText}</p>
             <ul>{categoriesSimplified.map((element, index) =>
-                <li key={index}> - {element} - total value of products in this category: {totalValuesSimplified[index].totalValue.toFixed(2)}$</li>)}
+                <li key={index} className={styles.answer}>
+                    {index + 1 + '. '}{capitalize(element)}{texts.description}
+                    {totalValuesSimplified[index].totalValue.toFixed(2)}{'$'}
+                </li>)}
             </ul>
-            <button type="button" onClick={handleShowJson}>SHOW JSON DATA STRUCTURE</button>
-            {shownJson && <pre className={styles.card}>{JSON.stringify(categories, null, 5)}</pre>}        </div>
+            <button type="button" onClick={handleShowJson}>
+                {texts.buttonText}
+            </button>
+            {shownJson && <pre className={styles.card}>
+                {JSON.stringify(categories, null, 5)}
+            </pre>}
+        </div>
     )
 }
 

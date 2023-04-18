@@ -1,18 +1,8 @@
-import { CartsContext } from '../../../Context/DataContext/DataContext';
 import styles from './Carts.module.scss';
+import { texts } from './texts';
 import { useState, useContext } from 'react';
-
-//date format options:
-const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-    timeZone: 'Europe/Warsaw'
-};
+import { options } from './dateFormatOptions';
+import { CartsContext } from '../../../Context/DataContext/DataContext';
 
 const Carts = () => {
 
@@ -23,19 +13,24 @@ const Carts = () => {
     return (
         <>
             <div className={styles.cartsHeader}>
-                <button type='button' onClick={showCartsHandler}>Show Carts</button>
+                <button type='button' onClick={showCartsHandler}>
+                    {texts.buttonShow}
+                </button>
             </div>
             {cartsDataOpen && <div className={styles.carts}>
                 {cartsData.length > 0 && cartsData?.map(cart =>
-                    <div
-                        key={cart.id}
+                    <div key={cart.id}
                         className={styles.productCard}>
-                        <p className={styles.id}>Cart ID: {cart.id}</p>
-                        <p>Purchase Date: {new Date(cart.date).toLocaleString('pl-PL', options)}</p>
-                        <ul>Product List:
-                            {cart.products.map(product => <li> - Product ID: {product.productId}, Quantity: {product.quantity}</li>)}
+                        <p className={styles.id}>{texts.id}{cart.id}</p>
+                        <p>{texts.date}{new Date(cart.date).toLocaleString('pl-PL', options)}</p>
+                        <ul>{texts.list}
+                            {cart.products.map(product =>
+                                <li>
+                                    {'- '}{texts.productId}{product.productId}
+                                    {', '}{texts.productQuantity}{product.quantity}
+                                </li>)}
                         </ul>
-                        <p>Buyer ID: {cart.userId}</p>
+                        <p>{texts.userId}{cart.userId}</p>
                     </div>)}
             </div>}
         </>
