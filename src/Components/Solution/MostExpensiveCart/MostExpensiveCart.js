@@ -6,6 +6,15 @@ import {
 } from '../../../Context/DataContext/DataContext';
 import styles from './MostExpensiveCart.module.scss';
 
+// function that capitalizes first letters of every word from string on demand"
+function capitalize(string) {
+    var rawString = string.toLowerCase().split(' ');
+    for (var i = 0; i < rawString.length; i++) {
+        rawString[i] = rawString[i].charAt(0).toUpperCase() + rawString[i].substring(1);
+    }
+    return rawString.join(' ');
+}
+
 const MostExpensiveCart = () => {
     // fetched data from context:
     const usersData = useContext(UsersContext);
@@ -14,16 +23,9 @@ const MostExpensiveCart = () => {
     // JSON hiding:
     const [shownJson, setShownJson] = useState(false);
     const handleShowJson = () => setShownJson(!shownJson);
+
     let cartsArray = [];
     let cartUser;
-    // function that capitalizes first letters of every word from string"
-    function capitalize(string) {
-        var rawString = string.toLowerCase().split(' ');
-        for (var i = 0; i < rawString.length; i++) {
-            rawString[i] = rawString[i].charAt(0).toUpperCase() + rawString[i].substring(1);
-        }
-        return rawString.join(' ');
-    }
 
     // function that calculates values for every cart:
     cartsData?.forEach((element) => {
@@ -37,7 +39,7 @@ const MostExpensiveCart = () => {
             }
             cartValue += parseFloat(elementValue);
         });
-        // populating array with objects and calculated values:
+        // filling array with objects and calculated values:
         cartsArray.push({ "basketNumber": element.id, "basketValue": cartValue.toFixed(2), "userId": element.userId });
         // sorting for better listing and extracting crucial properties:
         cartsArray.sort((a, b) => b.basketValue - a.basketValue)

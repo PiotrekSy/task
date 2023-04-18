@@ -17,6 +17,7 @@ const FurthestUsers = () => {
     // data hiding:
     const [shownJson, setShownJson] = useState(false);
     const handleShowJson = () => setShownJson(!shownJson);
+    const [] = useState('Loading...')
 
     const usersArray = [];
     usersData?.forEach((user) => usersArray.push({
@@ -30,35 +31,34 @@ const FurthestUsers = () => {
     // Only problem was proper use of geolocation variables: 
     let maxDistance = 0;
     let farthestPoints = [];
+
     for (let i = 0; i < usersArray.length; i++) {
         for (let j = i + 1; j < usersArray.length; j++) {
-            let distance =
-                Math.sqrt((usersArray[j].geolocation[0] - usersArray[i].geolocation[0]) ** 2
-                    + (usersArray[j].geolocation[1] - usersArray[i].geolocation[1]) ** 2);
+            let distance = Math.sqrt((usersArray[j].geolocation[0] - usersArray[i].geolocation[0]) ** 2
+                + (usersArray[j].geolocation[1] - usersArray[i].geolocation[1]) ** 2);
             if (distance > maxDistance) {
                 maxDistance = distance;
                 farthestPoints = [usersArray[i], usersArray[j]]
             }
         }
+
     }
 
     return (
         <div className={styles.solutionContainer}>
             <p className={styles.title}>4. Users living furthest away from each other:</p>
-            <div> - {farthestPoints[0]?.user} from {farthestPoints[0]?.city} and {farthestPoints[1]?.user}from {farthestPoints[1]?.city}</div>
+            <div data-testid="title"> - {farthestPoints[0]?.user} from {farthestPoints[0]?.city} and {farthestPoints[1]?.user}from {farthestPoints[1]?.city}</div>
             <div> - Distance between them measured using "farthest pair algorithm" is ~ {maxDistance.toFixed(2)} based on given geolocation data.</div>
             <button type='button' onClick={handleShowJson}>SHOW USERS LOCATIONS</button>
-
             <div >{shownJson && usersData?.map((user) =>
                 <div className={styles.card}>
-                    <p className={styles.name}>{capitalize(user?.name.firstname)} {capitalize(user?.name.lastname)} from {capitalize(user?.address.city)}</p>
+                    <p className={styles.name} >{capitalize(user?.name.firstname)} {capitalize(user?.name.lastname)} from {capitalize(user?.address.city)}</p>
                     <div>Longitude : {user?.address.geolocation.long}</div>
                     <div>Latitude : {user?.address.geolocation.lat}</div>
                 </div>
             )}
             </div>
         </div>
-
     )
 }
 

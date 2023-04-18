@@ -3,20 +3,6 @@
     padding: 10px;
 }
 
-button {
-    margin: 0 10px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    border: 1px solid black;
-    box-shadow: 5px 5px 10px 1px black;
-    font-weight: 800;
-}
-
-p {
-    color: black;
-    line-height: 1.4rem;
-}
-
 .productCard {
     padding: 10px;
     margin: 20px;
@@ -26,6 +12,11 @@ p {
     border-radius: 20px;
     box-shadow: 5px 5px 10px 1px black;
 
+    .image {
+        margin: 20px;
+        height: 200px;
+        min-width: 200px;
+    }
 
     .description {
         display: flex;
@@ -45,13 +36,8 @@ p {
             margin: 10px 0;
         }
 
-        .rating {}
-
         .price {
             font-weight: bold;
         }
-
-        .id {}
     }
-
 }
