@@ -17,12 +17,12 @@ export const findFurthestUsers = (usersData,) => {
                 furthestUsers = {
                     'firstUser': capitalize(usersData[i].name.firstname + ' ' + usersData[i].name.lastname),
                     'firstUserHometown': capitalize(usersData[i].address.city),
-                    'firstUserLongitude': usersData[i].address.geolocation.long,
-                    'firstUserLatitude': usersData[i].address.geolocation.lat,
+                    'firstUserLongitude': usersData[i].address.geolocation.long.toString(),
+                    'firstUserLatitude': usersData[i].address.geolocation.lat.toString(),
                     'secondUser': capitalize(usersData[j].name.firstname + ' ' + usersData[j].name.lastname),
                     'secondUserHometown': capitalize(usersData[j].address.city),
-                    'secondUserLongitude': usersData[j].address.geolocation.long,
-                    'secondUserLatitude': usersData[j].address.geolocation.lat,
+                    'secondUserLongitude': usersData[j].address.geolocation.long.toString(),
+                    'secondUserLatitude': usersData[j].address.geolocation.lat.toString(),
                     'maxDistance': maxDistance.toFixed(2)
                 }
             }

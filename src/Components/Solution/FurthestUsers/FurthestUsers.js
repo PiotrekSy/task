@@ -24,7 +24,6 @@ const FurthestUsers = () => {
                 <p>{'2. '}{furthestUsers.secondUser}{texts.from}{furthestUsers.secondUserHometown}</p>
             </div>
             <div>{texts.distanceDescription1}{furthestUsers.maxDistance}{texts.distanceDescription2}</div>
-
             {/* visualization of solution people */}
             <button type='button' onClick={handleShowSolutionJson}>{texts.buttonSolution}</button>
             {shownSolutionJson && <>

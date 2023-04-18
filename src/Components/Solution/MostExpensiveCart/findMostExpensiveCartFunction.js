@@ -1,4 +1,3 @@
-
 // function that calculates values for every cart:
 import { capitalize } from '../../utils/capitalizeFunction';
 
