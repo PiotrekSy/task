@@ -4,5 +4,7 @@ export const texts = {
     mostExpensive: ' is the most expensive. ',
     value: 'Its value is ',
     owner: ' is the owner. ',
-    buttonShow: 'Show JSON containing cart data and owner'
+    buttonShow: 'Show JSON containing cart data and owner',
+    calculating: 'Calculating...',
+
 }

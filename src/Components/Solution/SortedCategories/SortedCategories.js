@@ -8,11 +8,12 @@ import { ProductsContext } from '../../../Context/DataContext/DataContext';
 const SortedCategories = () => {
     // products data from context
     const productsData = useContext(ProductsContext);
-    const [shownJson, setShownJson] = useState(false);
+
     // collapse function
+    const [shownJson, setShownJson] = useState(false);
     const handleShowJson = () => setShownJson(!shownJson);
     const categories = categoriesCalculator(productsData);
-    // arrays of 
+
     const categoriesSimplified = Object.keys(categories);
     const totalValuesSimplified = Object.values(categories);
 

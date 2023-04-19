@@ -8,5 +8,6 @@ export const texts = {
     distanceDescription1: 'Distance between them measured using "farthest pair algorithm" is ~ ',
     distanceDescription2: ' based on given geolocation data. ',
     buttonSolution: 'Display furthest users ',
-    buttonEveryone: 'Display every user location data'
+    buttonEveryone: 'Display every user location data',
+    calculating: 'Calculating...',
 }

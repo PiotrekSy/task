@@ -1,5 +1,5 @@
 // function sorting products by categories inside 'categories' data structure:
-export const categoriesCalculator = (productsData) => {
+export const categoriesCalculator = (productsData, setIsCalculated) => {
     let categories = {};
     for (const product of productsData) {
         if (!categories[product.category]) {

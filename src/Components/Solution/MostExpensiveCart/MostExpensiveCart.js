@@ -14,7 +14,6 @@ const MostExpensiveCart = () => {
     const usersData = useContext(UsersContext);
     const productsData = useContext(ProductsContext);
     const cartsData = useContext(CartsContext);
-
     // JSON hiding:
     const [shownJson, setShownJson] = useState(false);
     const handleShowJson = () => setShownJson(!shownJson);

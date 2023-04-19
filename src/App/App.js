@@ -1,9 +1,9 @@
-import styles from './App.module.scss';
 import Task from '../Components/Task';
 import Data from '../Components/Data';
+import styles from './App.module.scss';
+import { useState, useEffect } from 'react';
 import Solution from '../Components/Solution';
 import { UsersContext, ProductsContext, CartsContext } from '../Context/DataContext/DataContext';
-import { useState, useEffect } from 'react';
 
 const App = () => {
   // data states to pass in context:
@@ -18,11 +18,11 @@ const App = () => {
     const carts = fetch('https://fakestoreapi.com/carts/?startdate=2000-01-01&enddate=2023-04-07');
 
     users.then(response => response.json())
-      .then(data => setUserData(data));
+      .then(data => { setUserData(data) });
     products.then(response => response.json())
-      .then(data => setProductsData(data));
+      .then(data => { setProductsData(data) });
     carts.then(response => response.json())
-      .then(data => setCartsData(data));
+      .then(data => { setCartsData(data) });
   }, []);
 
   return (

@@ -2,8 +2,9 @@ import { texts } from './texts';
 import { useContext, useState } from 'react';
 import styles from './FurthestUsers.module.scss';
 import { findFurthestUsers } from './findFurthestUsers';
-import { capitalize } from '../../utils/capitalizeFunction';
 import { UsersContext } from '../../../Context/DataContext/DataContext';
+import FullList from './FullList';
+import SolutionList from './SolutionList';
 
 const FurthestUsers = () => {
     // fetched data from context:
@@ -26,30 +27,11 @@ const FurthestUsers = () => {
             <div>{texts.distanceDescription1}{furthestUsers.maxDistance}{texts.distanceDescription2}</div>
             {/* visualization of solution people */}
             <button type='button' onClick={handleShowSolutionJson}>{texts.buttonSolution}</button>
-            {shownSolutionJson && <>
-                <div className={styles.card}>
-                    <p className={styles.name} >{furthestUsers.firstUser}{texts.from}{furthestUsers.firstUser}</p>
-                    <div>{texts.long}{furthestUsers.firstUserLongitude}</div>
-                    <div>{texts.lat}{furthestUsers.firstUserLatitude}</div>
-                </div>
-                <div className={styles.card}>
-                    <p className={styles.name} >{furthestUsers.secondUser}{texts.from}{furthestUsers.secondUserHometown}</p>
-                    <div>{texts.long}{furthestUsers.secondUserLongitude}</div>
-                    <div>{texts.lat}{furthestUsers.secondUserLatitude}</div>
-                </div>
-            </>}
-
+            {shownSolutionJson && <SolutionList furthestUsers={furthestUsers} />}
             {/* visualization of every uer compared */}
             <button type='button' onClick={handleShowEveryoneJson}>{texts.buttonEveryone}</button>
-            {shownEveryoneJson && usersData?.map((user) =>
-                <div className={styles.card}>
-                    <p className={styles.name}>{capitalize(user?.name.firstname)}{' '}{capitalize(user?.name.lastname)}</p>
-                    <div>{texts.long} {user?.address.geolocation.long}</div>
-                    <div>{texts.lat}{user?.address.geolocation.lat}</div>
-                    <div>{texts.address}{capitalize(user?.address.street)}{' '}{user?.address.number}{', '}
-                        {user?.address.zipcode}{' '}{capitalize(user?.address.city)}
-                    </div>
-                </div>
+            {shownEveryoneJson && usersData?.map((user) => <FullList user={user} />
+
             )}
         </div>
     )
